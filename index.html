@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>All food items.</h2>
+
+<!-- Combined Search and Category Filter Form -->
+<form action="/" method="get">
+    <!-- Search bar for searching by item name -->
+    <input type="text" name="query" placeholder="Search Menu" value="{{ request.args.get('query', '') }}">
+
+    <!-- Dropdown for selecting category -->
+    <select name="category">
+        <option value="all">All Categories</option>
+        {% for category in categories %}
+        <option value="{{ category }}" {% if request.args.get('category') == category %}selected{% endif %}>
+            {{ category }}
+        </option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Search</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Category</th>
+            <th>Calories</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Loop through the McDonald's menu data and create a row for each item -->
+        {% for item in pokemon %}
+        <tr>
+            <td>
+                <!-- Link to the item details page -->
+                <a href="{{ url_for('pokemon_details', name=item['Item']) }}">
+                    {{ item['Item'] }}
+                </a>
+            </td>
+            <td>{{ item['Category'] }}</td>
+            <td>{{ item['Calories'] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
