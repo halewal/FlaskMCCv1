@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>{{ pokemon['Item'] }}</h2>
+    <ul>
+        <li>Calories: {{ pokemon['Calories'] }}</li>
+        <li>Category: {{ pokemon['Category'] }}</li>
+    </ul>
+
+    <!-- Display the chart of stats (you can keep this if you want to visualize data like calories) -->
+    <img src="data:image/png;base64,{{ plot_url }}" alt="Stats chart">
+{% endblock %}
