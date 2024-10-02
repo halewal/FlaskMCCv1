@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>McDonald's&reg CC</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="navbar-logo"></div>
+        <div class="navbar-buttons">
+            <a href="#">Home</a>
+            <a href="#">Calorie Counter</a>
+            <a href="#">About</a>
+        </div>
+    </div>
+
+    <header>
+        <h1>McDonald's Calorie Counter</h1>
+
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>Not affiliated with McDonald's&reg</p>
+    </footer>
+</body>
+</html>
